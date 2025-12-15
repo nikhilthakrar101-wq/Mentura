@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speak to a Degree Apprentice • Mentura</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg-dark: #111827;
+      --card-dark: #1f2933;
+      --accent: #ffffff;
+      --accent-muted: #9ca3af;
+    }
+
+    body {
+      background: var(--bg-dark);
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--accent);
+    }
+
+    /* NAV */
+    header {
+      padding: 18px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+    nav a {
+      margin-left: 22px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent-muted);
+      font-size: 14px;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* MAIN */
+    main {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 22px;
+      text-align: center;
+    }
+
+    /* TYPING */
+    .typing, .typing-small {
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid var(--accent);
+      width: fit-content;
+      margin: 0 auto;
+      animation: blink 0.8s infinite;
+    }
+
+    .typing {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .typing-small {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 40px auto 25px;
+    }
+
+    @keyframes blink {
+      0% { border-right-color: rgba(255,255,255,1); }
+      50% { border-right-color: rgba(255,255,255,0); }
+      100% { border-right-color: rgba(255,255,255,1); }
+    }
+
+    /* SUBTEXT */
+    .subtext {
+      margin-top: 12px;
+      margin-bottom: 35px;
+      font-size: 17px;
+      color: var(--accent-muted);
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.55;
+    }
+
+    /* COMPANY LOGOS */
+    .uni-logos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 10px;
+      justify-items: center;
+      margin-bottom: 30px;
+    }
+
+    .uni-logos img {
+      width: 110px;
+      opacity: 0.95;
+      transition: 0.2s ease;
+    }
+    .uni-logos img:hover { opacity: 1; }
+
+    /* TESTIMONIALS */
+    .quote-wrapper {
+      width: 100%;
+      max-width: 900px;
+      margin: 40px auto 60px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .quote-track {
+      display: flex;
+      transition: transform 0.9s ease;
+    }
+
+    .quote-block {
+      width: 100%;
+      flex-shrink: 0;
+      text-align: center;
+      padding: 25px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .quote-mark, .closing-quote {
+      font-size: 60px;
+      opacity: 0.55;
+      user-select: none;
+      font-family: Georgia, serif;
+    }
+    .quote-mark { margin-bottom: 10px; }
+    .closing-quote { margin-top: 10px; }
+
+    .quote-text {
+      font-family: "Courier New", monospace;
+      font-size: 24px;
+      line-height: 1.6;
+      max-width: 650px;
+      padding: 0 25px;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .quote-author {
+      font-family: "Courier New", monospace;
+      font-size: 16px;
+      color: var(--accent-muted);
+      margin-top: 14px;
+    }
+
+    /* FORM */
+    .card {
+      background: var(--card-dark);
+      padding: 34px 28px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.35);
+      margin-top: 45px;
+      text-align: left;
+    }
+
+    label {
+      margin-top: 18px;
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    input, select, textarea {
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.22);
+      color: var(--accent);
+      width: 100%;
+      padding: 13px;
+      font-size: 15px;
+    }
+    textarea { min-height: 130px; }
+
+    button {
+      margin-top: 26px;
+      padding: 14px 22px;
+      background: var(--accent);
+      color: #111827;
+      border: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(.9); }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">MENTURA</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="speak-to-ug.html">UG Students</a>
+    <a href="speak-to-da.html">DA</a>
+    <a href="about.html">About</a>
+    <a href="interns.html">Interns</a>
+    <a href="ps-help.html">Personal Statement</a>
+    <a href="da-help.html">DA Help</a>
+  </nav>
+</header>
+
+<main>
+
+  <div id="typing-main" class="typing"></div>
+
+  <div class="subtext">
+    Our Degree Apprentices work at the most competitive companies in the world — and they’re here to help you succeed.
+    Why? Because they’ve been through the process themselves and know exactly what it takes to stand out.
+  </div>
+
+  <!-- COMPANY LOGOS -->
+  <div class="uni-logos">
+    <img src="logos/jpm.png" alt="J.P. Morgan">
+    <img src="logos/amazon.png" alt="Amazon">
+    <img src="logos/deloitte.png" alt="Deloitte">
+    <img src="logos/hsbc.png" alt="HSBC">
+    <img src="logos/ey.png" alt="EY">
+  </div>
+
+  <div id="typing-tips" class="typing-small"></div>
+
+  <!-- TESTIMONIALS -->
+  <div class="quote-wrapper">
+    <div class="quote-track" id="quote-track">
+
+      <div class="quote-block">
+        <div class="quote-mark">❝</div>
+        <div class="quote-text">
+          Stay open and curious always — spot chances to learn and grow wherever you are.
+        </div>
+        <div class="closing-quote">❞</div>
+        <div class="quote-author">— Prisha Verma, Financial Services Apprentice, J.P. Morgan</div>
+      </div>
+
+      <div class="quote-block">
+        <div class="quote-mark">❝</div>
+        <div class="quote-text">
+          When interviewing, have the self belief and back yourself that you are right for the role — pair this with strong knowledge of the company.
+        </div>
+        <div class="closing-quote">❞</div>
+        <div class="quote-author">— Cameron Hibbs, Project Management Apprentice, Amazon</div>
+      </div>
+
+      <div class="quote-block">
+        <div class="quote-mark">❝</div>
+        <div class="quote-text">
+          Don’t underestimate yourself — confidence is key to smashing your interviews as long as you are well prepared.
+        </div>
+        <div class="closing-quote">❞</div>
+        <div class="quote-author">— Ashley Jalif, Audit Associate Apprentice, Deloitte</div>
+      </div>
+
+      <div class="quote-block">
+        <div class="quote-mark">❝</div>
+        <div class="quote-text">
+          Research what’s going on in your aspiring field and the business you’re applying to — it always looks good when you understand the sector.
+        </div>
+        <div class="closing-quote">❞</div>
+        <div class="quote-author">— Conor Byrne, Wealth & Personal Banking Apprentice, HSBC</div>
+      </div>
+
+      <div class="quote-block">
+        <div class="quote-mark">❝</div>
+        <div class="quote-text">
+          Finance isn’t about having the perfect background — stay curious, ask great questions, build relationships, and the opportunities will follow.
+        </div>
+        <div class="closing-quote">❞</div>
+        <div class="quote-author">— Callum Brett, FICC Transformative Operations Apprentice, J.P. Morgan</div>
+      </div>
+
+      <div class="quote-block">
+        <div class="quote-mark">❝</div>
+        <div class="quote-text">
+          Learn about the role you want to pursue and what it really entails — understand the company and why you truly want to work there.
+        </div>
+        <div class="closing-quote">❞</div>
+        <div class="quote-author">— Harry Jiggens, CMB Degree Apprentice, HSBC</div>
+      </div>
+
+      <!-- NEW EY TESTIMONIAL -->
+      <div class="quote-block">
+        <div class="quote-mark">❝</div>
+        <div class="quote-text">
+          The most important thing is to research the company and try to find a few companies you truly want to work for instead of applying randomly — focus on them and learn as much as you can.
+        </div>
+        <div class="closing-quote">❞</div>
+        <div class="quote-author">— Yusuf Alsoodani, Audit Apprentice, EY</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="card">
+    <form action="https://formsubmit.co/nikhilthakrar101@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="thank-you-da.html">
+
+      <label>What is your name?</label>
+      <input type="text" name="Name" required>
+
+      <label>What is your email?</label>
+      <input type="email" name="Email" required>
+
+      <label>How did you hear about us?</label>
+      <select name="How did you hear about us?" required>
+        <option value="">-- Select --</option>
+        <option>CashFlowClub</option>
+        <option>Mentura</option>
+        <option>LinkedIn</option>
+        <option>Word of Mouth</option>
+        <option>Other</option>
+      </select>
+
+      <label>What year are you in and what are you studying?</label>
+      <input type="text" name="Year and Study" required>
+
+      <label>Who would you like to speak to? (e.g., Audit Apprentice at EY)</label>
+      <input type="text" name="Preferred DA" required>
+
+      <label>When are you free?</label>
+      <input type="text" name="Availability" required>
+
+      <label>Tell me a bit about yourself / why you want the call</label>
+      <textarea name="About You" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+</main>
+
+<!-- TYPING EFFECTS -->
+<script>
+function typeEffect(id, text, speed = 65) {
+  const el = document.getElementById(id);
+  el.textContent = "";
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      el.textContent = text.substring(0, i + 1);
+      i++;
+      setTimeout(typing, speed);
+    }
+  }
+  typing();
+}
+
+window.onload = function() {
+  typeEffect("typing-main", "Speak to a Degree Apprentice");
+  typeEffect("typing-tips", "Top Tips");
+  setInterval(() => typeEffect("typing-tips", "Top Tips"), 6000);
+};
+</script>
+
+<!-- SLIDER -->
+<script>
+let qIndex = 0;
+const track = document.getElementById("quote-track");
+const totalQuotes = track.children.length;
+
+function rotateQuotes() {
+  qIndex = (qIndex + 1) % totalQuotes;
+  track.style.transform = `translateX(-${qIndex * 100}%)`;
+}
+
+setInterval(rotateQuotes, 7000);
+</script>
+
+</body>
+</html>
+
+
