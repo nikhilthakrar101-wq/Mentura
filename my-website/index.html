@@ -1,3 +1,4 @@
+88888
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +19,9 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: "Inter", sans-serif; background: var(--bg-dark); color: var(--accent); }
+
+    /* Smooth scroll for Memberships jump */
+    html { scroll-behavior: smooth; }
 
     header {
       display: flex;
@@ -100,15 +104,24 @@
 
     .logo-track {
       display: flex;
-      gap: 80px;
       align-items: center;
       animation: scroll 25s linear infinite;
       padding-left: 60px;
       transform: translateZ(0);
     }
 
+    /* Even spacing: each logo gets the same slot width */
+    .logo-slot {
+      flex: 0 0 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .logo-track img {
       height: 55px;
+      max-width: 120px;
+      width: auto;
       filter: brightness(0) invert(1);
       opacity: 0.85;
       transition: 0.3s;
@@ -157,7 +170,7 @@
     .card:hover { transform: translateY(-5px); }
 
     .card h3 { font-size: 22px; margin-bottom: 12px; }
-    .card p { font-size: 16px; color: var(--accent-muted); margin-bottom: 20px; }
+    .card p { font-size: 16px; color: var(--accent-muted); margin-bottom: 20px; line-height: 1.5; }
     .card a { color: #fff; text-decoration: underline; font-weight: 500; }
 
     .how-it-works {
@@ -218,7 +231,7 @@
       line-height: 1.7;
     }
 
-    /* NEW: clean aligned checkmark bullets */
+    /* clean aligned checkmark bullets */
     .membership-list {
       list-style: none;
       margin-bottom: 32px;
@@ -244,7 +257,6 @@
       line-height: 1;
     }
 
-    /* Membership link (same as Start Now →) */
     .membership-link {
       color: #ffffff;
       text-decoration: underline;
@@ -252,9 +264,7 @@
       font-weight: 500;
     }
 
-    .membership-link:hover {
-      opacity: 0.8;
-    }
+    .membership-link:hover { opacity: 0.8; }
 
     /* FAQ */
     .faq {
@@ -327,9 +337,10 @@
     <a href="speak-to-ug.html">UG Students</a>
     <a href="speak-to-da.html">Degree Apprentices</a>
     <a href="interns.html">Interns</a>
-    <a href="ps-help.html">PS Help</a>
+    <a href="ps-help.html">UG Help</a>
     <a href="da-help.html">DA Help</a>
-    <!-- REMOVED: Commercial Awareness -->
+    <a href="#memberships">Memberships</a>
+    <a href="tutor.html">Tutoring Services</a>
     <a href="about.html">About</a>
   </nav>
 </header>
@@ -340,36 +351,36 @@
 </section>
 
 <!-- LOGO CAROUSEL -->
-<div class="logo-carousel">
+<div class="logo-carousel" aria-label="Partner logos carousel">
   <div class="logo-track">
-    <img src="logos/oxford.png">
-    <img src="logos/cambridge.png">
-    <img src="logos/lse.png">
-    <img src="logos/ucl.png">
-    <img src="logos/imperial.png">
-    <img src="logos/warwick.png">
-    <img src="logos/jpmorgan.png">
-    <img src="logos/amazon.png">
-    <img src="logos/deutschebank.png">
-    <img src="logos/hsbc.png">
-    <img src="logos/deloitte.png">
-    <img src="logos/kpmg.png">
-    <img src="logos/accenture.png">
+    <div class="logo-slot"><img src="logos/oxford.png" alt="University of Oxford" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/cambridge.png" alt="University of Cambridge" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/lse.png" alt="London School of Economics" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/ucl.png" alt="UCL" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/imperial.png" alt="Imperial College London" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/warwick.png" alt="University of Warwick" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/jpmorgan.png" alt="J.P. Morgan" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/amazon.png" alt="Amazon" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/deutschebank.png" alt="Deutsche Bank" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/hsbc.png" alt="HSBC" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/deloitte.png" alt="Deloitte" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/kpmg.png" alt="KPMG" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/accenture.png" alt="Accenture" loading="lazy" decoding="async"></div>
 
     <!-- duplicates -->
-    <img src="logos/oxford.png">
-    <img src="logos/cambridge.png">
-    <img src="logos/lse.png">
-    <img src="logos/ucl.png">
-    <img src="logos/imperial.png">
-    <img src="logos/warwick.png">
-    <img src="logos/jpmorgan.png">
-    <img src="logos/amazon.png">
-    <img src="logos/deutschebank.png">
-    <img src="logos/hsbc.png">
-    <img src="logos/deloitte.png">
-    <img src="logos/kpmg.png">
-    <img src="logos/accenture.png">
+    <div class="logo-slot"><img src="logos/oxford.png" alt="University of Oxford" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/cambridge.png" alt="University of Cambridge" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/lse.png" alt="London School of Economics" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/ucl.png" alt="UCL" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/imperial.png" alt="Imperial College London" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/warwick.png" alt="University of Warwick" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/jpmorgan.png" alt="J.P. Morgan" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/amazon.png" alt="Amazon" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/deutschebank.png" alt="Deutsche Bank" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/hsbc.png" alt="HSBC" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/deloitte.png" alt="Deloitte" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/kpmg.png" alt="KPMG" loading="lazy" decoding="async"></div>
+    <div class="logo-slot"><img src="logos/accenture.png" alt="Accenture" loading="lazy" decoding="async"></div>
   </div>
 </div>
 
@@ -391,27 +402,26 @@
 
   <div class="card">
     <h3>Intern Insights</h3>
-    <p>Coming soon - speak to interns from leading companies.</p>
+    <p>Coming soon. Speak to interns from leading companies.</p>
     <a href="interns.html">Learn More →</a>
   </div>
 
   <div class="card">
-    <h3>Personal Statement Help</h3>
-    <p>Get information on how to standout in your Personal Statement.</p>
+    <h3>UG Application Help</h3>
+    <p>A one stop interactive hub covering everything you need for your UG application.</p>
     <a href="ps-help.html">Get Help →</a>
   </div>
 
   <div class="card">
     <h3>DA Application Help</h3>
-    <p>Help with the application process, giving you everything you need to know.</p>
+    <p>A one stop interactive hub covering the full DA application process, step by step.</p>
     <a href="da-help.html">Get Support →</a>
   </div>
 
-  <!-- UPDATED: Commercial Awareness card → About Us -->
   <div class="card">
-    <h3>About Us</h3>
-    <p>Learn more about Mentura, our mission, and how we help students succeed.</p>
-    <a href="about.html">Learn More →</a>
+    <h3>Tutors</h3>
+    <p>Securing offers is one thing, getting the grades is another. Maximise your chances with our specialised tutors.</p>
+    <a href="tutor.html">Learn More →</a>
   </div>
 
 </section>
@@ -419,10 +429,10 @@
 <section class="how-it-works">
   <h2>How It Works</h2>
   <p>
-    Fill out the form on any of our pages. Our team will respond within 48 hours  
-    to confirm a time for your call. You’ll then speak directly with a real  
-    university student, degree apprentice or intern.  
-    No more scrolling endlessly on LinkedIn — just real insight from real people.
+    Fill out the form on any of our pages. Our team will respond within 48 hours
+    to confirm a time for your call. You’ll then speak directly with a real
+    university student, degree apprentice or intern.
+    No more scrolling endlessly on LinkedIn, just real insight from real people.
   </p>
 </section>
 
@@ -430,12 +440,11 @@
 <!-- ⭐ UPDATED MEMBERSHIP SECTION ⭐ -->
 <section class="membership-section" id="memberships">
 
-
   <!-- FREE MEMBERSHIP -->
   <div class="membership-card-full slide-left">
     <h3>Free Membership</h3>
     <p class="membership-desc">
-      Get essential guidance and resources to support your academic and career journey — completely free.
+      Get essential guidance and resources to support your academic and career journey, completely free.
     </p>
 
     <ul class="membership-list">
@@ -493,12 +502,12 @@
 
     <div class="faq-box">
       <div class="faq-question">What if I cannot make the time?</div>
-      <div class="faq-answer">Just email us — we’ll happily reschedule.</div>
+      <div class="faq-answer">Just email us and we’ll happily reschedule.</div>
     </div>
 
     <div class="faq-box">
       <div class="faq-question">What if my course is niche?</div>
-      <div class="faq-answer">If we don’t have someone immediately available, we’ll find a suitable match ASAP.</div>
+      <div class="faq-answer">If we don’t have someone immediately available, we’ll find a suitable match as soon as possible.</div>
     </div>
 
     <div class="faq-box">
@@ -514,8 +523,8 @@
     <div class="faq-box">
       <div class="faq-question">Will CV & Personal Statement reviews be done on the call?</div>
       <div class="faq-answer">
-        No — students are there to guide you.  
-        If you need your CV or Personal Statement reviewed, contact us and we’ll assign someone to review it.
+        No, students are there to guide you.
+        If you need your CV or personal statement reviewed, contact us and we’ll assign someone to review it.
       </div>
     </div>
 
@@ -534,7 +543,6 @@
       <a class="footer-link" href="interns.html">Interns</a><br>
       <a class="footer-link" href="ps-help.html">PS Help</a><br>
       <a class="footer-link" href="da-help.html">DA Help</a><br>
-      <a class="footer-link" href="commercial-awareness.html">Commercial Awareness</a><br>
       <a class="footer-link" href="about.html">About</a><br>
     </div>
 
@@ -561,7 +569,7 @@
     <div>
       <div class="footer-title">Social</div>
       <p class="footer-text">
-        Follow <strong>CashFlowClub</strong> on TikTok for student career & finance content.
+        Follow <strong>CashFlowClub</strong> on TikTok for student career and finance content.
       </p>
     </div>
 
@@ -628,6 +636,8 @@
 
 </body>
 </html>
+
+
 
 
 

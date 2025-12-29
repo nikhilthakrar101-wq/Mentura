@@ -27,20 +27,39 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
     }
+
     .logo {
       text-transform: uppercase;
       font-size: 22px;
       font-weight: 700;
       letter-spacing: .08em;
     }
+
+    .logo a {
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+    }
+
     nav a {
-      margin-left: 22px;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: .08em;
       color: var(--accent-muted);
       font-size: 14px;
+      white-space: nowrap;
+      cursor: pointer;
+      position: relative;
+      z-index: 10;
     }
     nav a:hover { color: var(--accent); }
 
@@ -207,15 +226,15 @@
 <body>
 
 <header>
-  <div class="logo">MENTURA</div>
+  <div class="logo"><a href="index.html">MENTURA</a></div>
   <nav>
-    <a href="index.html">Home</a>
     <a href="speak-to-ug.html">UG Students</a>
-    <a href="speak-to-da.html">DA</a>
-    <a href="about.html">About</a>
+    <a href="speak-to-da.html">Degree Apprentices</a>
     <a href="interns.html">Interns</a>
-    <a href="ps-help.html">Personal Statement</a>
+    <a href="ps-help.html">UG Help</a>
     <a href="da-help.html">DA Help</a>
+    <a href="tutor.html">Tutoring Services</a>
+    <a href="about.html">About</a>
   </nav>
 </header>
 
@@ -229,12 +248,12 @@
   </div>
 
   <div class="uni-logos">
-    <img src="logos/warwick.png">
-    <img src="logos/lse.png">
-    <img src="logos/ucl.png">
-    <img src="logos/imperial.png">
-    <img src="logos/oxford.png">
-    <img src="logos/cambridge.png">
+    <img src="logos/warwick.png" alt="Warwick">
+    <img src="logos/lse.png" alt="LSE">
+    <img src="logos/ucl.png" alt="UCL">
+    <img src="logos/imperial.png" alt="Imperial">
+    <img src="logos/oxford.png" alt="Oxford">
+    <img src="logos/cambridge.png" alt="Cambridge">
   </div>
 
   <div id="typing-tips" class="typing-small"></div>
@@ -339,12 +358,7 @@
   <!-- FORM -->
   <div class="card">
     <form id="ug-form" action="https://formspree.io/f/mnneozge" method="POST">
-
-      <!-- redirect to thank-you page -->
       <input type="hidden" name="_redirect" value="thank-you-ug.html">
-
-      <!-- (optional) if you configure confirmation emails in Formspree dashboard -->
-      <!-- <input type="hidden" name="_confirmation" value="true"> -->
 
       <label>What is your name?</label>
       <input type="text" name="Name" required>
@@ -382,7 +396,6 @@
 
 </main>
 
-<!-- TYPING EFFECTS -->
 <script>
 function typeEffect(id, text, speed = 65) {
   const el = document.getElementById(id);
@@ -405,7 +418,6 @@ window.onload = function() {
 };
 </script>
 
-<!-- SLIDER -->
 <script>
 let qIndex = 0;
 const track = document.getElementById("quote-track");
@@ -419,7 +431,6 @@ function rotateQuotes() {
 setInterval(rotateQuotes, 7000);
 </script>
 
-<!-- FORM HANDLER -->
 <script>
 const form = document.getElementById("ug-form");
 const status = document.getElementById("form-status");
@@ -436,7 +447,6 @@ form.addEventListener("submit", async (e) => {
   });
 
   if (response.ok) {
-    // Go to thank you page
     window.location.href = "thank-you-ug.html";
   } else {
     status.innerHTML = "Something went wrong. Please try again.";
@@ -446,4 +456,7 @@ form.addEventListener("submit", async (e) => {
 
 </body>
 </html>
+
+
+
 

@@ -20,12 +20,15 @@
       text-align: center;
     }
 
+    /* NAV */
     header {
       padding: 18px 28px;
       border-bottom: 1px solid rgba(255,255,255,0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -34,14 +37,26 @@
       font-weight: 700;
       letter-spacing: .08em;
     }
+    .logo a {
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+    }
 
     nav a {
       color: var(--accent-muted);
-      margin-left: 22px;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: .08em;
       font-size: 14px;
+      white-space: nowrap;
+      cursor: pointer;
     }
 
     nav a:hover { color: var(--accent); }
@@ -63,15 +78,15 @@
 <body>
 
 <header>
-  <div class="logo">MENTURA</div>
+  <div class="logo"><a href="index.html">MENTURA</a></div>
   <nav>
-    <a href="index.html">Home</a>
     <a href="speak-to-ug.html">UG Students</a>
-    <a href="speak-to-da.html">DA</a>
-    <a href="about.html">About</a>
+    <a href="speak-to-da.html">Degree Apprentices</a>
     <a href="interns.html">Interns</a>
-    <a href="ps-help.html">Personal Statement</a>
+    <a href="ps-help.html">UG Help</a>
     <a href="da-help.html">DA Help</a>
+    <a href="tutor.html">Tutoring Services</a>
+    <a href="about.html">About</a>
   </nav>
 </header>
 
@@ -82,3 +97,4 @@
 
 </body>
 </html>
+
